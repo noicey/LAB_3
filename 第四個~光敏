@@ -1,0 +1,29 @@
+int sensorValue = 0;
+float sensorVolage,R1,ResisterValue=1129479;
+int i;
+void setup() 
+{
+   Serial.begin(9600);
+   Serial.println("---------------------");
+  
+}
+void loop() 
+{
+      float VIN = 0;
+      for(i=0;i<20;i++)
+      {
+        sensorValue =0.7*sensorValue+0.3*analogRead(A0);
+        delay(100);
+      }
+       sensorVolage = sensorValue*2.5/4095;
+       R1=sensorVolage*ResisterValue/2.5;
+       Serial.print("sensorValue =");
+       Serial.println(sensorValue);
+       Serial.print("sensorVolage=");
+       Serial.println(sensorVolage);
+       Serial.print("R1=");
+       Serial.println(R1);
+       
+
+      
+}
