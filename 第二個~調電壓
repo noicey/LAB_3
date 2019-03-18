@@ -1,0 +1,22 @@
+int Analogin = 0;
+int i;
+void setup() 
+{
+   Serial.begin(9600);
+   Serial.println("Hello,World!");
+  
+}
+void loop() 
+{
+      float VIN = 0;
+      for(i=0;i<5;i++)
+      {
+        Analogin =0.7*Analogin+0.3*analogRead(A0);
+        VIN = Analogin*2.5/4095;
+        Serial.print("analogRead(A0)=");
+        Serial.println(analogRead(A0));
+        Serial.print("VIN=");
+        Serial.println(VIN);
+        delay(1000);
+      }
+}
